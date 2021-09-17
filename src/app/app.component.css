@@ -1,0 +1,28 @@
+#contenedor {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;  
+}
+
+#contenedor > div {
+  width: 35%;
+}
+
+.instrucciones {
+  margin-bottom: 1rem;
+}
+
+.investment-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-right: 3rem;
+}
+
+.investment-form .form-item {
+  width: 100%;
+}
+
+.tabla-resultado {
+  width: 45rem;
+}
+
