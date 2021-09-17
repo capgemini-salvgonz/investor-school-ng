@@ -59,8 +59,8 @@
   <div class="resultado">
     <h1 class="text-center">Resumen del resultado de inversión</h1>
     
-    <p><b>Ganancia por inversión:</b> $0.0</p>
-    <p><b>Saldo final:</b> $0.0</p>
+    <p><b>Ganancia por inversión:</b> {{revenue | balanceFormat}}</p>
+    <p><b>Saldo final:</b> {{finalBalance | balanceFormat}}</p>
 
     <h1 class="text-center">Tabla de rendimiento</h1>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table-hover tabla-resultado">
@@ -74,22 +74,22 @@
 
       <ng-container matColumnDef="Inversión">
         <th mat-header-cell *matHeaderCellDef >Inversión</th>
-        <td mat-cell *matCellDef="let element" class="mat-header-cell"> {{element.initialInvestment}} </td>
+        <td mat-cell *matCellDef="let element" class="mat-header-cell"> {{element.initialInvestment | balanceFormat}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Incremento">
         <th mat-header-cell *matHeaderCellDef >Incremento</th>
-        <td mat-cell *matCellDef="let element" class="mat-header-cell"> {{element.yearlyInput}} </td>
+        <td mat-cell *matCellDef="let element" class="mat-header-cell"> {{element.yearlyInput | balanceFormat}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Rendimiento">
         <th mat-header-cell *matHeaderCellDef >Rendimiento</th>
-        <td mat-cell *matCellDef="let element" class="mat-header-cell"> {{element.investmentYield}} </td>
+        <td mat-cell *matCellDef="let element" class="mat-header-cell"> {{element.investmentYield | balanceFormat}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Saldo Final">
         <th mat-header-cell *matHeaderCellDef >Saldo Final</th>
-        <td mat-cell *matCellDef="let element" class="mat-header-cell"> {{element.finalBalance}} </td>
+        <td mat-cell *matCellDef="let element" class="mat-header-cell"> {{element.finalBalance | balanceFormat}} </td>
       </ng-container>
 
     </table>

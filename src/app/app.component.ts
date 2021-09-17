@@ -17,6 +17,8 @@ import { MatTableDataSource } from '@angular/material/table';
 export class AppComponent {
 
   public investmentData = new InitialInvestment();
+  public revenue: number = 0.0;
+  public finalBalance: number = 0.0;
 
   /** Configuración de la tabla */
   public displayedColumns: string[] = ['Año', 'Inversión', 'Incremento', 'Rendimiento', 'Saldo Final'];
@@ -36,6 +38,12 @@ export class AppComponent {
       result => {
         console.log(result);
         this.dataSource = new MatTableDataSource<InvestmentYield>(result);
+        const sumIncrements = result.reduce((sum,curren) => sum + curren.yearlyInput, 0)
+        this.finalBalance = result[this.investmentData.investmentYears-1].finalBalance;
+        this.revenue = this.finalBalance - sumIncrements - result[0].initialInvestment;
+        console.log(sumIncrements);
+        console.log(this.finalBalance);
+        console.log(this.revenue);
       },
       error => {
         console.log(error);
